@@ -5,7 +5,7 @@ Departments(dept_id, dept_name)
  
 ############## Find the 3rd highest salary in each department. ###################
 
-* LEARNING - use rank,row_number or dense rank whenever specified rank of the category wise is needed
+#* LEARNING - use rank,row_number or dense rank whenever specified rank of the category wise is needed
 
 WITH employee_cte AS (
 SELECT
@@ -25,7 +25,7 @@ WHERE e.salary_rank = 3;
 
 ############## List employees who earn more than their manager. ###################
 
-* LEARNING - need to do self join with the same table whenever there is req to compare between one record to another record in same table 
+#* LEARNING - need to do self join with the same table whenever there is req to compare between one record to another record in same table 
 
 
 SELECT
@@ -36,7 +36,7 @@ WHERE e.salary > m.salary;
 
 ############## Rank employees by salary within each department. ###################
 
-* LEARNING - Can use rank, dense rank or row number whenever rank on specific category is needed
+#* LEARNING - Can use rank, dense rank or row number whenever rank on specific category is needed
 
 SELECT
 e.emp_id,
@@ -49,7 +49,7 @@ JOIN departments d ON e.dept_id = d.dept_id;
 
 ############## Get running total of salaries department-wise ordered by hire_date. ###################
 
-* LEARNING - We are using SUM with partition by which is similar to group by
+#* LEARNING - We are using SUM with partition by which is similar to group by
 
 SELECT
 dept_id,
@@ -62,7 +62,7 @@ FROM employees;
 
 ############## Find departments where the average salary is greater than the overall average ###################
 
-* LEARNING - First get the avg salary of the department by group by on dept_id and dep_name then in where condition use avg(group by salary) > (select avg(salary) from table)
+#* LEARNING - First get the avg salary of the department by group by on dept_id and dep_name then in where condition use avg(group by salary) > (select avg(salary) from table)
 which is nothing but total avg of the table inside inner query 
 
 SELECT
@@ -85,7 +85,7 @@ Orders(order_id, cust_id, order_date, order_amount)
 ############## Find top 3 customers by total sales in each region. ###################
 
 
-* LEARNING - breaking the problem to chunks -
+#* LEARNING - breaking the problem to chunks -
  1. Region wise and customer wise we need to get the sum(order_amount)
  2. Rank it over the region by total_sales which we got in above cte by  desc order
  3.  Now get the desired rank which we want 
